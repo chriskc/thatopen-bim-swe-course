@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThatOpen BIM Dev - Create Static Websites</title>
+    <link rel="stylesheet" type="text/css" href="./style.css"></link>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />    
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div id="sidebar">
+        <img id="company-logo" src="./assets/company-logo.svg" alt="company-logo">
+        <div id="nav-buttons">
+            <li>
+                <span class="material-symbols-outlined">construction</span>
+                Projects
+            </li>
+            <li>
+                <span class="material-symbols-outlined">group</span>
+                People
+            </li>
+            <li>
+                <span class="material-symbols-outlined">apartment</span>
+                Companies
+            </li>
+        </div>
+    </div>
+    <main id="content">
+        <div id="projects-home" style="display: none;">
+            <dialog id="new-project-modal">
+                <form>
+                    <h5>New Project</h5>
+                    <hr>
+                    <div class="input-list">
+                        <div class="form-field-container">
+                            <label>Name</label>
+                            <input type="text">
+                            <i style="color: var(--background-300); font-size: 14px;">Tip: Shorter names are easier to manage.</i>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Description</label>
+                            <textarea placeholder="Add a description of the project here" rows="5"></textarea>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Role</label>
+                            <select>
+                                <option>Architect</option>
+                                <option>Engineer</option>
+                                <option>Developer</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Status</label>
+                            <select>
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Date</label>
+                            <input type="date">
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="form-buttons">
+                        <button style="background-color: var(--background-200);">Cancel</button>
+                        <button>Accept</button>
+                    </div>
+                </form>
+            </dialog>
+            <div id="page-header">
+                <h1>Projects</h1>
+                <button class="btn-primary" script="document.getElementById("new-project-modal").showModal()">
+                    <span class="material-symbols-outlined">add</span>
+                    New Project
+                </button>
+            </div>
+            <div id="projects-list">
+                <div id="project-card-1" class="project-card">
+                    <div class="card-header">
+                        <p class="card-icon">HC</p>
+                        <div>
+                            <h5 class="card-title">Hospital Center</h5>
+                            <p class="card-description">Community hospital located at downtown</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="card-property">
+                            <p class="card-label">Status</p>
+                            <p class="card-value">Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Role</p>
+                            <p class="card-value">Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Cost</p>
+                            <p class="card-value">$ 2,000,000.00</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Estimated Progress</p>
+                            <p class="card-value">43%</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="project-card-2" class="project-card">
+                    <div class="card-header">
+                        <p class="card-icon">HC</p>
+                        <div>
+                            <h5 class="card-title">Hospital Center</h5>
+                            <p class="card-description">Community hospital located at downtown</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="card-property">
+                            <p class="card-label">Status</p>
+                            <p class="card-value">Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Role</p>
+                            <p class="card-value">Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Cost</p>
+                            <p class="card-value">$ 2,000,000.00</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Estimated Progress</p>
+                            <p class="card-value">43%</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="project-card-3" class="project-card">
+                    <div class="card-header">
+                        <p class="card-icon">HC</p>
+                        <div>
+                            <h5 class="card-title">Hospital Center</h5>
+                            <p class="card-description">Community hospital located at downtown</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="card-property">
+                            <p class="card-label">Status</p>
+                            <p class="card-value">Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Role</p>
+                            <p class="card-value">Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Cost</p>
+                            <p class="card-value">$ 2,000,000.00</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Estimated Progress</p>
+                            <p class="card-value">43%</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="project-card-4" class="project-card">
+                    <div class="card-header">
+                        <p class="card-icon">HC</p>
+                        <div>
+                            <h5 class="card-title">Hospital Center</h5>
+                            <p class="card-description">Community hospital located at downtown</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="card-property">
+                            <p class="card-label">Status</p>
+                            <p class="card-value">Active</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Role</p>
+                            <p class="card-value">Engineer</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Cost</p>
+                            <p class="card-value">$ 2,000,000.00</p>
+                        </div>
+                        <div class="card-property">
+                            <p class="card-label">Estimated Progress</p>
+                            <p class="card-value">43%</p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <div id="project-details">
+            <div id="project-header">
+                <h3 id="project-title">Hospital Center</h3>
+                <h5 id="project-description">Community hospital located at downtown</h5>
+            </div>
+            <hr>
+            <div id="project-details-content">
+                <div id="project-sidebar">
+                    <div id="project-info">
+                        <div id="info-header">
+                            <p class="card-icon">HC</p>
+                            <button class="btn-secondary">Edit</button>
+                        </div>
+                        <div id="info-description">
+                            <h3>Hospital Center</h3>
+                            <p style="color: var(--background-400);">Community hospital located at downtown</p>
+                        </div>
+                        <div id="info-properties">
+                            <div class="info-prop">
+                                <p class="info-prop-field">Status</p>
+                                <p class="info-prop-value">Active</p>
+                            </div>
+                            <div class="info-prop">
+                                <p class="info-prop-field">Cost</p>
+                                <p class="info-prop-value">2,500,000</p>
+                            </div>
+                            <div class="info-prop">
+                                <p class="info-prop-field">Role</p>
+                                <p class="info-prop-value">Engineer</p>
+                            </div>
+                            <div class="info-prop">
+                                <p class="info-prop-field">Finish Date</p>
+                                <p class="info-prop-value">2024-01-26</p>
+                            </div>
+                        </div>
+                        <div id="info-progress-bar">progress bar</div>                    
+                    </div>
+                    <div id="project-todos">
+                        <div id="todo-header">
+                            <h3>To-Do</h3>
+                            <div style="display: flex; justify-content: right; column-gap: 15px; align-items: center;">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="text" placeholder="Search">
+                                <span class="material-symbols-outlined">add</span>
+                            </div>
+                        </div>
+                        <div id="todo-list">
+                            <div class="todo-card">
+                                <div style="display: flex; column-gap: 15px; align-items: center;">
+                                    <span class="material-symbols-outlined">check_box</span>
+                                    <p class="todo-description">Task description 1</p>
+                                </div>
+                                <p class="todo-due-date">Fri, 20 Sept</p>
+                            </div>
+                            <div class="todo-card">
+                                <div style="display: flex; column-gap: 15px; align-items: center;">
+                                    <span class="material-symbols-outlined">check_box</span>
+                                    <p class="todo-description">Task description 2</p>
+                                </div>
+                                <p class="todo-due-date">Fri, 21 Sept</p>
+                            </div>
+                            <div class="todo-card">
+                                <div style="display: flex; column-gap: 15px; align-items: center;">
+                                    <span class="material-symbols-outlined">check_box</span>
+                                    <p class="todo-description">Task description 3 </p>
+                                </div>
+                                <p class="todo-due-date">Fri, 21 Sept</p>
+                            </div>
+                            <div class="todo-card">
+                                <div style="display: flex; column-gap: 15px; align-items: center;">
+                                    <span class="material-symbols-outlined">check_box</span>
+                                    <p class="todo-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, at.</p>
+                                </div>
+                                <p class="todo-due-date">Fri, 21 Sept</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="project-viewer"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

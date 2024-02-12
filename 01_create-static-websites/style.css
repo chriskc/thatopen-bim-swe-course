@@ -1,0 +1,372 @@
+/* ------------------------------ */
+/* general styles */
+/* ------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
+
+/* ------------------------------ */
+/* variables */
+/* ------------------------------ */
+
+:root {
+    --primary: rgb(26, 152, 208);
+    /* --primary: rgb(140, 45, 200); */
+    --background-000: black;
+    --background-100: rgb(25, 25, 25);
+    --background-200: rgb(50, 50, 50);
+    --background-300: rgb(85, 85, 85);
+    --background-400: rgb(150, 150, 150);
+    --font-small: 12px;
+    --font-medium: 18px;
+    --font-large: 24px;
+}
+
+/* ------------------------------ */
+/* main styles */
+/* ------------------------------ */
+
+* {
+    font-family: 'Manrope', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 200px 1fr; 
+    grid-template-areas: "sidebar content";
+    height: 100vh;
+    background-color: var(--background-000);
+    color: white;
+    overflow: scroll;
+    min-height: max-content;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: var(--font-small);
+    cursor: pointer;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+button span {
+    padding-right: 10px;
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary);
+}
+
+.btn-secondary {
+    border: 1px;
+    border-radius: 5px;
+    /* border-color: white; */
+    background-color: var(--background-200);
+}
+
+h1 {
+    font-size: var(--font-large);
+    font-weight: 1000;
+}
+
+h3 {
+    font-size: var(--font-medium);
+    font-weight: 600;
+}
+
+h5 {
+    font-size: var(--font-small);
+    font-weight: 500;
+}
+
+hr {
+    height: 1px;
+    background-color: var(--background-300);
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* ------------------------------ */
+/* sidebar styles */
+/* ------------------------------ */
+
+#sidebar {
+    background-color: var(--background-200);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#company-logo{
+    height: 60px;
+    padding: 20px;
+}
+
+#content {
+    background-color: var(--background-000);
+    height: 100vh;
+}
+
+#nav-buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 10px;
+}
+
+#nav-buttons li {
+    list-style-type: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: var(--font-small);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+}
+
+#nav-buttons li span{
+    padding-right: 10px;
+}
+
+#nav-buttons li:hover {
+    background-color: var(--primary);
+}
+
+/* ------------------------------ */
+/* content styles - project list */
+/* ------------------------------ */
+
+#page-header {
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.project-card {
+    background-color: var(--background-200);
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.project-card:hover {
+    background-color: var(--background-300);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card-icon {
+    background-color: rgb(117, 164, 149);
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.card-property {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.card-label {
+    color: var(--background-400);
+}
+
+/* ------------------------------ */
+/* content styles - project details */
+/* ------------------------------ */
+
+#project-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#project-header {
+    padding: 20px
+}
+
+#project-details-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    padding-left: 20px;
+    padding-right: 20px;
+    column-gap: 20px;
+    flex-grow: 1;
+    overflow: auto;
+
+}
+
+#project-sidebar {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#project-info, #project-todos {
+    background-color: var(--background-100);
+}
+
+#project-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 15px;
+}
+
+#info-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+#info-description {
+    font-size: var(--font-small);
+}
+
+#info-properties {
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-small);
+    justify-content: space-between;
+}
+
+.info-prop {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-prop-field {
+    color: var(--background-400);
+}
+
+#project-viewer {
+    width: 100%;
+    background-color: var(--background-100);
+    flex-grow: 1;
+}
+
+#project-todos {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    row-gap: 20px;
+    padding: 15px;
+}
+
+#todo-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.todo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--background-200);
+    font-size: var(--font-small);
+}
+
+.todo-description {
+    white-space: pre-wrap;
+    max-width: 200px;
+}
+
+/* ------------------------------ */
+/* form styles */
+/* ------------------------------ */
+
+dialog {
+    background-color: var(--background-200);
+    border-radius: 10px;
+    border: none;
+    margin: auto;
+    padding: 20px;
+    width: 450px;
+}
+
+dialog::backdrop {
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+form .input-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+form .form-field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+form .form-field-container label {
+    padding-bottom: 5px;
+}
+
+input, textarea, select {
+    color: white;
+    background-color: var(--background-300);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+textarea {
+    height: ;
+}
+
+textarea::placeholder {
+    color: var(--background-400);
+}
+
+input:focus, textarea:focus, select:focus  {
+    outline: 2px solid var(--primary)
+}
+
+#form-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: right;
+}
