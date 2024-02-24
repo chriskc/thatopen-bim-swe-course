@@ -27,8 +27,8 @@
         </div>
     </div>
     <main id="content">
-        <div id="projects-home" style="display: none;">
-            <dialog id="new-project-modal">
+        <div class="page" id="projects-home" style="display: none;">
+            <dialog class="form" id="new-project-modal">
                 <form>
                     <h5>New Project</h5>
                     <hr>
@@ -70,9 +70,9 @@
                     </div>
                 </form>
             </dialog>
-            <div id="page-header">
+            <div id="home-header">
                 <h1>Projects</h1>
-                <button class="btn-primary" script="document.getElementById("new-project-modal").showModal()">
+                <button class="btn-primary" onclick="document.getElementById('new-project-modal').showModal()">
                     <span class="material-symbols-outlined">add</span>
                     New Project
                 </button>
@@ -193,7 +193,7 @@
     
             </div>
         </div>
-        <div id="project-details">
+        <div class="page" id="project-details" style="display: none;">
             <div id="project-header">
                 <h3 id="project-title">Hospital Center</h3>
                 <h5 id="project-description">Community hospital located at downtown</h5>
@@ -273,6 +273,91 @@
                     </div>
                 </div>
                 <div id="project-viewer"></div>
+            </div>
+        </div>
+        <div class="page" id="people">
+            <dialog class="form" id="new-person-modal">
+                <form>
+                    <h5>New Person</h5>
+                    <hr>
+                    <div class="input-list">
+                        <div class="form-field-container">
+                            <label>Name</label>
+                            <input type="text">
+                            <i style="color: var(--background-300); font-size: 14px;">Tip: Shorter names are easier to manage.</i>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Company</label>
+                            <select>
+                                <option>Juno</option>
+                                <option>Foster & Partners</option>
+                                <option>FXCollaborative</option>
+                                <option>WeWork</option>
+                                <option>Stonehill Taylor</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Job Title</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-field-container">
+                            <label>Role</label>
+                            <select>
+                                <option>Architect</option>
+                                <option>Engineer</option>
+                                <option>Developer</option>
+                                <option>Technology</option>
+                            </select>
+                        </div>
+                        <div class="form-field-container">
+                            <label>Location</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-field-container">
+                            <label>Status</label>
+                            <select>
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div id="form-buttons">
+                        <button style="background-color: var(--background-200);">Cancel</button>
+                        <button>Accept</button>
+                    </div>
+                </form>
+            </dialog>
+            <div id="people-header">
+                <h1>People</h1>
+                <button class="btn-primary" onclick="document.getElementById('new-person-modal').showModal()">
+                    <span class="material-symbols-outlined">add</span>
+                    New Person
+                </button>
+            </div>
+            <div id="people-list">
+                <div id="person-row-1" class="person-row">
+                    <div class="person-icon">CC</div>
+                    <div class="person-name">Christopher Chan</div>
+                    <div class="person-company">Juno</div>
+                    <div class="person-role">Technology</div>
+                    <div class="person-title">Sr. Technical Computing Manager</div>
+                    <div class="person-location">Brooklyn</div>
+                    <div class="person-status">Active</div>
+                    <button class="btn-secondary">View Details</button>
+                </div>
+                <div id="person-row-2" class="person-row">
+                    <div class="person-icon">KM</div>
+                    <div class="person-name">Kate Meagher</div>
+                    <div class="person-company">Juno</div>
+                    <div class="person-role">Design</div>
+                    <div class="person-title">Design Director</div>
+                    <div class="person-location">Brooklyn</div>
+                    <div class="person-status">Active</div>
+                    <button class="btn-secondary">View Details</button>
+                </div>
+                
             </div>
         </div>
     </main>

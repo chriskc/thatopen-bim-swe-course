@@ -38,8 +38,8 @@ body {
     height: 100vh;
     background-color: var(--background-000);
     color: white;
-    overflow: scroll;
     min-height: max-content;
+
 }
 
 button {
@@ -69,6 +69,11 @@ button span {
     background-color: var(--background-200);
 }
 
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
 h1 {
     font-size: var(--font-large);
     font-weight: 1000;
@@ -92,6 +97,12 @@ hr {
     margin-bottom: 10px;
 }
 
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;;
+}
+
 /* ------------------------------ */
 /* sidebar styles */
 /* ------------------------------ */
@@ -100,7 +111,7 @@ hr {
     background-color: var(--background-200);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 }
 #company-logo{
     height: 60px;
@@ -109,7 +120,7 @@ hr {
 
 #content {
     background-color: var(--background-000);
-    height: 100vh;
+    height: 100vh;;
 }
 
 #nav-buttons {
@@ -142,7 +153,7 @@ hr {
 /* content styles - project list */
 /* ------------------------------ */
 
-#page-header {
+#home-header {
     padding: 40px 40px;
     display: flex;
     align-items: center;
@@ -198,7 +209,7 @@ hr {
 /* ------------------------------ */
 
 #project-details {
-    height: 100%;
+    height: 100vh;;
     display: flex;
     flex-direction: column;
 }
@@ -299,6 +310,11 @@ hr {
     font-size: var(--font-small);
 }
 
+.todo-card:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
 .todo-description {
     white-space: pre-wrap;
     max-width: 200px;
@@ -369,4 +385,44 @@ input:focus, textarea:focus, select:focus  {
     align-items: center;
     column-gap: 10px;
     justify-content: right;
+}
+
+/* ------------------------------ */
+/* content styles - people list */
+/* ------------------------------ */
+
+#people-header {
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#people-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 20px;
+}
+
+.person-row {
+    display: grid;
+    grid-template-columns: 40px 1fr 150px 150px 300px 150px 150px 100px; 
+    grid-template-areas: "person-icon person-name person-company person-role person-title person-location person-status btn-secondary";
+    align-items: center;
+    padding: 10px;
+    background-color: var(--background-100);
+    border-radius: 5px;
+}
+
+.person-name {
+    padding-left: 20px;
+    font-weight: 600;
+}
+
+.person-icon{
+    background-color: var(--primary);
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
 }
