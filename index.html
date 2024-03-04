@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThatOpen BIM Dev - Create Static Websites</title>
-    <link rel="stylesheet" type="text/css" href="./style.css"></link>
+    <link rel="stylesheet" type="text/css" href="./src/style.css"></link>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />    
-    <script src="./script.js"></script>
 </head>
 <body>
     <div id="sidebar">
@@ -27,24 +26,24 @@
         </div>
     </div>
     <main id="content">
-        <div class="page" id="projects-home" style="display: none;">
+        <div class="page" id="projects-home">
             <dialog class="form" id="new-project-modal">
-                <form>
+                <form id="new-project-form">
                     <h5>New Project</h5>
                     <hr>
                     <div class="input-list">
                         <div class="form-field-container">
                             <label>Name</label>
-                            <input type="text">
+                            <input name="name" type="text">
                             <i style="color: var(--background-300); font-size: 14px;">Tip: Shorter names are easier to manage.</i>
                         </div>
                         <div class="form-field-container">
                             <label>Description</label>
-                            <textarea placeholder="Add a description of the project here" rows="5"></textarea>
+                            <textarea name="description" placeholder="Add a description of the project here" rows="5"></textarea>
                         </div>
                         <div class="form-field-container">
                             <label>Role</label>
-                            <select>
+                            <select name="role">
                                 <option>Architect</option>
                                 <option>Engineer</option>
                                 <option>Developer</option>
@@ -52,7 +51,7 @@
                         </div>
                         <div class="form-field-container">
                             <label>Status</label>
-                            <select>
+                            <select name="status">
                                 <option>Pending</option>
                                 <option>Active</option>
                                 <option>Finished</option>
@@ -60,11 +59,11 @@
                         </div>
                         <div class="form-field-container">
                             <label>Date</label>
-                            <input type="date">
+                            <input name="date" type="date">
                         </div>
                     </div>
                     <hr>
-                    <div id="form-buttons">
+                    <div class="form-buttons" id="project-form-buttons">
                         <button style="background-color: var(--background-200);">Cancel</button>
                         <button>Accept</button>
                     </div>
@@ -72,7 +71,7 @@
             </dialog>
             <div id="home-header">
                 <h1>Projects</h1>
-                <button class="btn-primary" onclick="document.getElementById('new-project-modal').showModal()">
+                <button id="new-project-btn" class="btn-primary">
                     <span class="material-symbols-outlined">add</span>
                     New Project
                 </button>
@@ -275,7 +274,7 @@
                 <div id="project-viewer"></div>
             </div>
         </div>
-        <div class="page" id="people">
+        <div class="page" id="people" style="display: none;">
             <dialog class="form" id="new-person-modal">
                 <form>
                     <h5>New Person</h5>
@@ -323,7 +322,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div id="form-buttons">
+                    <div class="form-buttons" id="project-form-buttons">
                         <button style="background-color: var(--background-200);">Cancel</button>
                         <button>Accept</button>
                     </div>
@@ -361,5 +360,6 @@
             </div>
         </div>
     </main>
+    <script src="./src/script.js"></script>
 </body>
 </html>

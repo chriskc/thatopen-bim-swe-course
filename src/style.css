@@ -379,7 +379,7 @@ input:focus, textarea:focus, select:focus  {
     outline: 2px solid var(--primary)
 }
 
-#form-buttons {
+.form-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
