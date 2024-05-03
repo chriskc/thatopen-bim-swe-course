@@ -1,0 +1,11 @@
+{
+    "files.watcherExclude": {
+        "**/target": true
+    },
+    "editor.guides.indentation": true,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSurroundingLines": 10,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.renderLineHighlight": "line",
+    "terminal.integrated.allowMnemonics": true
+}
