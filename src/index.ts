@@ -1,21 +1,17 @@
-import { Project } from "./class/Project"
-
-
+import { IProject, Project, ProjectStatus, UserRoles } from "./class/Project.ts"
 
 // ------------------------------------
 // Placeholder projects
 // ------------------------------------
 
 const placeholderData = {
-    name: "Hospital Center",
-    description: "Community hospital located at downtown",
-    status: "Active",
-    role: "Engineer",
-    cost: "$ 2,000,000.00",
-    date: ""
-};
-
-console.log(placeholderData)
+    name: "Hospital Center" as string,
+    description: "Community hospital located at downtown" as string,
+    status: "Active" as ProjectStatus,
+    userRole: "Engineer" as UserRoles,
+    cost: "$ 2,000,000.00" as string,
+    finishDate: new Date("" as string)
+}
 
 const placeholder = new Project(placeholderData)
 for (let i = 0; i < 4; i++){
@@ -58,7 +54,7 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault()
         const formData = new FormData(projectForm)        
-        const projectData = {}
+        const projectData = {} as IProject // Asseting type of object here! Assumes data structure of projectData matches that of IProject. Prob not a best practice.
         formData.forEach(function(value, key){
            projectData[key] = value
         })
@@ -93,9 +89,3 @@ function assignBtnToPage(buttonId: string, pageId: string) {
 
 assignBtnToPage("nav-projects", "projects-home")
 assignBtnToPage("nav-people", "people-home")
-
-// function addNumbers(a: number , b: number) {
-//     console.log(a + b)
-// }
-
-// addNumbers(5, 10)
