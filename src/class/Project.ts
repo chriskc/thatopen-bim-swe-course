@@ -15,6 +15,9 @@ export class Project {
     status: ProjectStatus
     userRole: UserRoles
     finishDate: Date
+    ui: HTMLDivElement
+    cost: number = 1000000
+    progress: number = 0
 
     constructor(data: IProject) {
         this.name = data.name;
@@ -22,37 +25,79 @@ export class Project {
         this.userRole = data.userRole;
         this.status = data.status;
         this.finishDate = data.finishDate;
+        this.createProjectCard()
     }
 
     createProjectCard() {
-        const cardTemplate = document.getElementById("project-card-template")
-        
-        if (!cardTemplate) {
-            console.error("Project card template element is missing")
-            return
-        }
+        if (this.ui) {return}
+        const randomNumber = Math.floor(Math.random() * 1000000);
 
-        const projectCard = cardTemplate.cloneNode(true)
-
-        if (projectCard instanceof HTMLElement){
-            
-            projectCard.style.display = "block"
-            
-            const randomNumber = Math.floor(Math.random() * 1000000);
-            projectCard.id = `project-card-${randomNumber}`
-            projectCard.classList.add("project-card")
-            
-            setTextContent(projectCard, ".card-title", this.name)
-            setTextContent(projectCard, ".card-description", this.description)
-            setTextContent(projectCard, ".card-role-value", this.userRole)
-            setTextContent(projectCard, ".card-status-value", this.status)
-        }
-        
+        this.ui = document.createElement("div")
+        this.ui.innerHTML = `
+        <div id="project-card-${randomNumber}" class="project-card"">
+            <div class="card-header">
+                <p class="card-icon">PR</p>
+                <div>
+                    <h5 class="card-title">${this.name}</h5>
+                    <p class="card-description">${this.description}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="card-property">
+                    <p class="card-status-label">Status</p>
+                    <p class="card-status-value">${this.status}</p>
+                </div>
+                <div class="card-property">
+                    <p class="card-role-label">Role</p>
+                    <p class="card-role-value">${this.userRole}</p>
+                </div>
+                <div class="card-property">
+                    <p class="card-cost-label">Cost</p>
+                    <p class="card-cost-value">$${this.cost}</p>
+                </div>
+                <div class="card-property">
+                    <p class="card-prog-label">Estimated Progress</p>
+                    <p class="card-prog-value">${this.progress * 100}%</p>
+                </div>
+            </div>
+        </div>
+        `
         const projectList = document.getElementById("projects-list")
         if (projectList){
-            projectList.appendChild(projectCard)   
-        }       
+            projectList.appendChild(this.ui)   
+        }      
     }
+
+    // createProjectCard() {
+    //     const cardTemplate = document.getElementById("project-card-template")
+        
+    //     if (!cardTemplate) {
+    //         console.error("Project card template element is missing")
+    //         return
+    //     }
+
+    //     const projectCard = cardTemplate.cloneNode(true)
+
+    //     if (projectCard instanceof HTMLElement){
+            
+    //         projectCard.style.display = "block"
+            
+    //         const randomNumber = Math.floor(Math.random() * 1000000);
+    //         projectCard.id = `project-card-${randomNumber}`
+    //         projectCard.classList.add("project-card")
+            
+    //         setTextContent(projectCard, ".card-title", this.name)
+    //         setTextContent(projectCard, ".card-description", this.description)
+    //         setTextContent(projectCard, ".card-role-value", this.userRole)
+    //         setTextContent(projectCard, ".card-status-value", this.status)
+    //     }
+        
+    //     const projectList = document.getElementById("projects-list")
+    //     if (projectList){
+    //         projectList.appendChild(projectCard)   
+    //     }       
+    // }
 }
 
 function setTextContent(parentElement: HTMLElement | null, className: string, text: string) {

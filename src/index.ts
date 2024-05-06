@@ -10,14 +10,16 @@ import { ProjectsManager } from "./class/ProjectsManager.ts"
 const projectsManager = new ProjectsManager()
 projectsManager.listProjects()
 
-// const placeholderData = {
-//     name: "Hospital Center" as string,
-//     description: "Community hospital located at downtown" as string,
-//     status: "Active" as ProjectStatus,
-//     userRole: "Engineer" as UserRoles,
-//     cost: "$ 2,000,000.00" as string,
-//     finishDate: new Date("" as string)
-// }
+const placeholderData = {
+    name: "Hospital Center" as string,
+    description: "Community hospital located at downtown" as string,
+    status: "Active" as ProjectStatus,
+    userRole: "Engineer" as UserRoles,
+    cost: "$ 2,000,000.00" as string,
+    finishDate: new Date("" as string)
+}
+
+projectsManager.newProject(placeholderData)
 
 // const placeholder = new Project(placeholderData)
 // for (let i = 0; i < 4; i++){
@@ -39,7 +41,6 @@ function toggleModal(id: string){
     }
 }
 
-
 const newProjectBtn = document.getElementById("new-project-btn")
 if (newProjectBtn) {
     newProjectBtn.addEventListener("click", () => {toggleModal("new-project-modal")})
@@ -48,20 +49,21 @@ if (newProjectBtn) {
 }
 
 const projectForm = document.getElementById("new-project-form")
+console.log(projectForm)
+
 if (projectForm && projectForm instanceof HTMLFormElement) {
     projectForm.addEventListener("submit", (e) => {
         e.preventDefault()
         const formData = new FormData(projectForm)        
-        const projectData = {} as IProject // Asseting type of object here! Assumes data structure of projectData matches that of IProject. Prob not a best practice.
+        const projectData = {} as IProject // Assigning type of object here! Assumes data structure of projectData matches that of IProject. Don't overuse.
         formData.forEach(function(value, key){
-           projectData[key] = value
+            projectData[key] = value
         })
-        const project = projectsManager.newProject(projectData)
-        // closeModal("new-project-modal")
-        toggleModal("new-project-modal")
-        
-        console.log(project)
-        console.log(projectData)
+        projectsManager.newProject(projectData)
+        projectForm.reset()
+    })
+    projectForm.addEventListener("reset", (e) => {
+        toggleModal("new-project-modal")    
     })
 } else {
     console.warn("Form not found.")
