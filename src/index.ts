@@ -1,50 +1,48 @@
 import { IProject, Project, ProjectStatus, UserRoles } from "./class/Project.ts"
+import { ProjectsManager } from "./class/ProjectsManager.ts"
 
 // ------------------------------------
 // Placeholder projects
 // ------------------------------------
 
-const placeholderData = {
-    name: "Hospital Center" as string,
-    description: "Community hospital located at downtown" as string,
-    status: "Active" as ProjectStatus,
-    userRole: "Engineer" as UserRoles,
-    cost: "$ 2,000,000.00" as string,
-    finishDate: new Date("" as string)
-}
+// TODO update with projects manager function
 
-const placeholder = new Project(placeholderData)
-for (let i = 0; i < 4; i++){
-    placeholder.createProjectCard()
-}
+const projectsManager = new ProjectsManager()
+projectsManager.listProjects()
+
+// const placeholderData = {
+//     name: "Hospital Center" as string,
+//     description: "Community hospital located at downtown" as string,
+//     status: "Active" as ProjectStatus,
+//     userRole: "Engineer" as UserRoles,
+//     cost: "$ 2,000,000.00" as string,
+//     finishDate: new Date("" as string)
+// }
+
+// const placeholder = new Project(placeholderData)
+// for (let i = 0; i < 4; i++){
+//     placeholder.createProjectCard()
+// }
 
 // ------------------------------------
 // Create new projects
 // ------------------------------------
 
-function showModal(id: string) {
+function toggleModal(id: string){
     const modal = document.getElementById(id)
-    if (modal && modal instanceof HTMLDialogElement) {
+    if (modal.open && modal && modal instanceof HTMLDialogElement) {
+        modal.close()
+    } else if (modal && modal instanceof HTMLDialogElement) {
         modal.showModal()
     } else {
         console.warn("Modal not found when showing. ID: ", id)
-    }
-}
-// showModal("new-project-modal")
-
-function closeModal(id: string) {
-    const modal = document.getElementById(id)
-    if (modal && modal instanceof HTMLDialogElement) {
-        modal.close()
-    } else {
-        console.warn("Modal not found when closing. ID: ", id)
     }
 }
 
 
 const newProjectBtn = document.getElementById("new-project-btn")
 if (newProjectBtn) {
-    newProjectBtn.addEventListener("click", () => {showModal("new-project-modal")})
+    newProjectBtn.addEventListener("click", () => {toggleModal("new-project-modal")})
 } else {
     console.warn("New Project Button not found.")
 }
@@ -58,9 +56,11 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
         formData.forEach(function(value, key){
            projectData[key] = value
         })
-        const newProject = new Project(projectData)
-        closeModal("new-project-modal")
-        newProject.createProjectCard()
+        const project = projectsManager.newProject(projectData)
+        // closeModal("new-project-modal")
+        toggleModal("new-project-modal")
+        
+        console.log(project)
         console.log(projectData)
     })
 } else {
