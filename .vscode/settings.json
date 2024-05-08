@@ -7,5 +7,9 @@
     "editor.cursorSurroundingLines": 10,
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.renderLineHighlight": "line",
-    "terminal.integrated.allowMnemonics": true
+    "terminal.integrated.allowMnemonics": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": false
+    }
 }

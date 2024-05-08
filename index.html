@@ -1,83 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThatOpen BIM Dev - Create Static Websites</title>
-    <link rel="stylesheet" type="text/css" href="./src/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
-</head>
-<body>
-    <div id="sidebar">
-        <img id="company-logo" src="./assets/company-logo.svg" alt="company-logo">
-        <div id="nav-buttons">
-            <li id="nav-projects">
-                <span class="material-symbols-outlined">construction</span>
-                Projects
-            </li>
-            <li id="nav-people">
-                <span class="material-symbols-outlined">group</span>
-                People
-            </li>
-            <li id="nav-companies">
-                <span class="material-symbols-outlined">apartment</span>
-                Companies
-            </li>
-        </div>
-    </div>
-    <main id="content">
-        <div class="page" id="projects-home">
-            <dialog class="form" id="new-project-modal">
-                <form id="new-project-form">
-                    <h5>New Project</h5>
-                    <hr>
-                    <div class="input-list">
-                        <div class="form-field-container">
-                            <label>Name</label>
-                            <input name="name" type="text">
-                            <i style="color: var(--background-300); font-size: 14px;">Tip: Shorter names are easier to manage.</i>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Description</label>
-                            <textarea name="description" placeholder="Add a description of the project here" rows="5"></textarea>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Role</label>
-                            <select name="role">
-                                <option>Architect</option>
-                                <option>Engineer</option>
-                                <option>Developer</option>
-                            </select>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Status</label>
-                            <select name="status">
-                                <option>Pending</option>
-                                <option>Active</option>
-                                <option>Finished</option>
-                            </select>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Date</label>
-                            <input name="date" type="date">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-buttons" id="project-form-buttons">
-                        <button type="reset" style="background-color: var(--background-200);">Cancel</button>
-                        <button type="submit">Accept</button>
-                    </div>
-                </form>
-            </dialog>
-            <div id="home-header">
-                <h1>Projects</h1>
-                <button id="new-project-btn" class="btn-primary">
-                    <span class="material-symbols-outlined">add</span>
-                    New Project
-                </button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ThatOpen BIM Dev - Create Static Websites</title>
+        <link rel="stylesheet" type="text/css" href="./src/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    </head>
+    <body>
+        <div id="sidebar">
+            <img
+                id="company-logo"
+                src="./assets/company-logo.svg"
+                alt="company-logo" />
+            <div id="nav-buttons">
+                <li id="nav-projects">
+                    <span class="material-symbols-outlined">construction</span>
+                    Projects
+                </li>
+                <li id="nav-people">
+                    <span class="material-symbols-outlined">group</span>
+                    People
+                </li>
+                <li id="nav-companies">
+                    <span class="material-symbols-outlined">apartment</span>
+                    Companies
+                </li>
             </div>
-            <div id="projects-list">
-                <div id="project-card-template" class="project-card" style="display: none;">
+        </div>
+        <main id="content">
+            <div class="page" id="projects-home">
+                <dialog class="form" id="new-project-modal">
+                    <form id="new-project-form">
+                        <h5>New Project</h5>
+                        <hr />
+                        <div class="input-list">
+                            <div class="form-field-container">
+                                <label>Name</label>
+                                <input name="name" type="text" />
+                                <i
+                                    style="
+                                        color: var(--background-300);
+                                        font-size: 14px;
+                                    "
+                                    >Tip: Shorter names are easier to manage.</i
+                                >
+                            </div>
+                            <div class="form-field-container">
+                                <label>Description</label>
+                                <textarea
+                                    name="description"
+                                    placeholder="Add a description of the project here"
+                                    rows="5"></textarea>
+                            </div>
+                            <div class="form-field-container">
+                                <label>Role</label>
+                                <select name="role">
+                                    <option>Architect</option>
+                                    <option>Engineer</option>
+                                    <option>Developer</option>
+                                </select>
+                            </div>
+                            <div class="form-field-container">
+                                <label>Status</label>
+                                <select name="status">
+                                    <option>Pending</option>
+                                    <option>Active</option>
+                                    <option>Finished</option>
+                                </select>
+                            </div>
+                            <div class="form-field-container">
+                                <label>Date</label>
+                                <input name="date" type="date" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="form-buttons" id="project-form-buttons">
+                            <button
+                                type="reset"
+                                style="background-color: var(--background-200)">
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                                style="background-color: var(--primary)">
+                                Accept
+                            </button>
+                        </div>
+                    </form>
+                </dialog>
+                <dialog id="alert-modal">
+                    <div id="alert-modal-contents">
+                        <label id="alert-label">Error</label>
+                        <div id="alert-message">test-message-here</div>
+                        <button
+                            id="close-alert-modal"
+                            style="background-color: var(--background-200)">
+                            Cancel
+                        </button>
+                    </div>
+                </dialog>
+                <div id="home-header">
+                    <h1>Projects</h1>
+                    <button id="new-project-btn" class="btn-primary">
+                        <span class="material-symbols-outlined">add</span>
+                        New Project
+                    </button>
+                </div>
+                <div id="projects-list">
+                    <!-- <div id="project-card-template" class="project-card" style="display: none;">
                     <div class="card-header">
                         <p class="card-icon">PR</p>
                         <div>
@@ -104,177 +137,240 @@
                             <p class="card-prog-value">0%</p>
                         </div>
                     </div>
+                </div> -->
                 </div>
             </div>
-        </div>
-        <div class="page" id="project-details" style="display: none;">
-            <div id="project-header">
-                <h3 id="project-title">Hospital Center</h3>
-                <h5 id="project-description">Community hospital located at downtown</h5>
-            </div>
-            <hr>
-            <div id="project-details-content">
-                <div id="project-sidebar">
-                    <div id="project-info">
-                        <div id="info-header">
-                            <p class="card-icon">HC</p>
-                            <button class="btn-secondary">Edit</button>
+            <div class="page" id="project-details" style="display: none">
+                <div id="project-header">
+                    <h3 id="project-title">Hospital Center</h3>
+                    <h5 id="project-description">
+                        Community hospital located at downtown
+                    </h5>
+                </div>
+                <hr />
+                <div id="project-details-content">
+                    <div id="project-sidebar">
+                        <div id="project-info">
+                            <div id="info-header">
+                                <p class="card-icon">HC</p>
+                                <button class="btn-secondary">Edit</button>
+                            </div>
+                            <div id="info-description">
+                                <h3>Hospital Center</h3>
+                                <p style="color: var(--background-400)">
+                                    Community hospital located at downtown
+                                </p>
+                            </div>
+                            <div id="info-properties">
+                                <div class="info-prop">
+                                    <p class="info-prop-field">Status</p>
+                                    <p class="info-prop-value">Active</p>
+                                </div>
+                                <div class="info-prop">
+                                    <p class="info-prop-field">Cost</p>
+                                    <p class="info-prop-value">2,500,000</p>
+                                </div>
+                                <div class="info-prop">
+                                    <p class="info-prop-field">Role</p>
+                                    <p class="info-prop-value">Engineer</p>
+                                </div>
+                                <div class="info-prop">
+                                    <p class="info-prop-field">Finish Date</p>
+                                    <p class="info-prop-value">2024-01-26</p>
+                                </div>
+                            </div>
+                            <div id="info-progress-bar">progress bar</div>
                         </div>
-                        <div id="info-description">
-                            <h3>Hospital Center</h3>
-                            <p style="color: var(--background-400);">Community hospital located at downtown</p>
+                        <div id="project-todos">
+                            <div id="todo-header">
+                                <h3>To-Do</h3>
+                                <div
+                                    style="
+                                        display: flex;
+                                        justify-content: right;
+                                        column-gap: 15px;
+                                        align-items: center;
+                                    ">
+                                    <span class="material-symbols-outlined"
+                                        >search</span
+                                    >
+                                    <input type="text" placeholder="Search" />
+                                    <span class="material-symbols-outlined"
+                                        >add</span
+                                    >
+                                </div>
+                            </div>
+                            <div id="todo-list">
+                                <div class="todo-card">
+                                    <div
+                                        style="
+                                            display: flex;
+                                            column-gap: 15px;
+                                            align-items: center;
+                                        ">
+                                        <span class="material-symbols-outlined"
+                                            >check_box</span
+                                        >
+                                        <p class="todo-description">
+                                            Task description 1
+                                        </p>
+                                    </div>
+                                    <p class="todo-due-date">Fri, 20 Sept</p>
+                                </div>
+                                <div class="todo-card">
+                                    <div
+                                        style="
+                                            display: flex;
+                                            column-gap: 15px;
+                                            align-items: center;
+                                        ">
+                                        <span class="material-symbols-outlined"
+                                            >check_box</span
+                                        >
+                                        <p class="todo-description">
+                                            Task description 2
+                                        </p>
+                                    </div>
+                                    <p class="todo-due-date">Fri, 21 Sept</p>
+                                </div>
+                                <div class="todo-card">
+                                    <div
+                                        style="
+                                            display: flex;
+                                            column-gap: 15px;
+                                            align-items: center;
+                                        ">
+                                        <span class="material-symbols-outlined"
+                                            >check_box</span
+                                        >
+                                        <p class="todo-description">
+                                            Task description 3
+                                        </p>
+                                    </div>
+                                    <p class="todo-due-date">Fri, 21 Sept</p>
+                                </div>
+                                <div class="todo-card">
+                                    <div
+                                        style="
+                                            display: flex;
+                                            column-gap: 15px;
+                                            align-items: center;
+                                        ">
+                                        <span class="material-symbols-outlined"
+                                            >check_box</span
+                                        >
+                                        <p class="todo-description">
+                                            Lorem ipsum dolor sit amet
+                                            consectetur adipisicing elit.
+                                            Perspiciatis, at.
+                                        </p>
+                                    </div>
+                                    <p class="todo-due-date">Fri, 21 Sept</p>
+                                </div>
+                            </div>
                         </div>
-                        <div id="info-properties">
-                            <div class="info-prop">
-                                <p class="info-prop-field">Status</p>
-                                <p class="info-prop-value">Active</p>
-                            </div>
-                            <div class="info-prop">
-                                <p class="info-prop-field">Cost</p>
-                                <p class="info-prop-value">2,500,000</p>
-                            </div>
-                            <div class="info-prop">
-                                <p class="info-prop-field">Role</p>
-                                <p class="info-prop-value">Engineer</p>
-                            </div>
-                            <div class="info-prop">
-                                <p class="info-prop-field">Finish Date</p>
-                                <p class="info-prop-value">2024-01-26</p>
-                            </div>
-                        </div>
-                        <div id="info-progress-bar">progress bar</div>                    
                     </div>
-                    <div id="project-todos">
-                        <div id="todo-header">
-                            <h3>To-Do</h3>
-                            <div style="display: flex; justify-content: right; column-gap: 15px; align-items: center;">
-                                <span class="material-symbols-outlined">search</span>
-                                <input type="text" placeholder="Search">
-                                <span class="material-symbols-outlined">add</span>
+                    <div id="project-viewer"></div>
+                </div>
+            </div>
+            <div class="page" id="people-home" style="display: none">
+                <dialog class="form" id="new-person-modal">
+                    <form>
+                        <h5>New Person</h5>
+                        <hr />
+                        <div class="input-list">
+                            <div class="form-field-container">
+                                <label>Name</label>
+                                <input type="text" />
+                                <i
+                                    style="
+                                        color: var(--background-300);
+                                        font-size: 14px;
+                                    "
+                                    >Tip: Shorter names are easier to manage.</i
+                                >
+                            </div>
+                            <div class="form-field-container">
+                                <label>Company</label>
+                                <select>
+                                    <option>Juno</option>
+                                    <option>Foster & Partners</option>
+                                    <option>FXCollaborative</option>
+                                    <option>WeWork</option>
+                                    <option>Stonehill Taylor</option>
+                                </select>
+                            </div>
+                            <div class="form-field-container">
+                                <label>Job Title</label>
+                                <input type="text" />
+                            </div>
+                            <div class="form-field-container">
+                                <label>Role</label>
+                                <select>
+                                    <option>Architect</option>
+                                    <option>Engineer</option>
+                                    <option>Developer</option>
+                                    <option>Technology</option>
+                                </select>
+                            </div>
+                            <div class="form-field-container">
+                                <label>Location</label>
+                                <input type="text" />
+                            </div>
+                            <div class="form-field-container">
+                                <label>Status</label>
+                                <select>
+                                    <option>Pending</option>
+                                    <option>Active</option>
+                                    <option>Finished</option>
+                                </select>
                             </div>
                         </div>
-                        <div id="todo-list">
-                            <div class="todo-card">
-                                <div style="display: flex; column-gap: 15px; align-items: center;">
-                                    <span class="material-symbols-outlined">check_box</span>
-                                    <p class="todo-description">Task description 1</p>
-                                </div>
-                                <p class="todo-due-date">Fri, 20 Sept</p>
-                            </div>
-                            <div class="todo-card">
-                                <div style="display: flex; column-gap: 15px; align-items: center;">
-                                    <span class="material-symbols-outlined">check_box</span>
-                                    <p class="todo-description">Task description 2</p>
-                                </div>
-                                <p class="todo-due-date">Fri, 21 Sept</p>
-                            </div>
-                            <div class="todo-card">
-                                <div style="display: flex; column-gap: 15px; align-items: center;">
-                                    <span class="material-symbols-outlined">check_box</span>
-                                    <p class="todo-description">Task description 3 </p>
-                                </div>
-                                <p class="todo-due-date">Fri, 21 Sept</p>
-                            </div>
-                            <div class="todo-card">
-                                <div style="display: flex; column-gap: 15px; align-items: center;">
-                                    <span class="material-symbols-outlined">check_box</span>
-                                    <p class="todo-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, at.</p>
-                                </div>
-                                <p class="todo-due-date">Fri, 21 Sept</p>
-                            </div>
-                            
+                        <hr />
+                        <div class="form-buttons" id="project-form-buttons">
+                            <button
+                                style="background-color: var(--background-200)">
+                                Cancel
+                            </button>
+                            <button>Accept</button>
                         </div>
+                    </form>
+                </dialog>
+                <div id="people-header">
+                    <h1>People</h1>
+                    <button
+                        class="btn-primary"
+                        onclick="document.getElementById('new-person-modal').showModal()">
+                        <span class="material-symbols-outlined">add</span>
+                        New Person
+                    </button>
+                </div>
+                <div id="people-list">
+                    <div id="person-row-1" class="person-row">
+                        <div class="person-icon">CC</div>
+                        <div class="person-name">Christopher Chan</div>
+                        <div class="person-company">Juno</div>
+                        <div class="person-role">Technology</div>
+                        <div class="person-title">
+                            Sr. Technical Computing Manager
+                        </div>
+                        <div class="person-location">Brooklyn</div>
+                        <div class="person-status">Active</div>
+                        <button class="btn-secondary">View Details</button>
+                    </div>
+                    <div id="person-row-2" class="person-row">
+                        <div class="person-icon">KM</div>
+                        <div class="person-name">Kate Meagher</div>
+                        <div class="person-company">Juno</div>
+                        <div class="person-role">Design</div>
+                        <div class="person-title">Design Director</div>
+                        <div class="person-location">Brooklyn</div>
+                        <div class="person-status">Active</div>
+                        <button class="btn-secondary">View Details</button>
                     </div>
                 </div>
-                <div id="project-viewer"></div>
             </div>
-        </div>
-        <div class="page" id="people-home" style="display: none;">
-            <dialog class="form" id="new-person-modal">
-                <form>
-                    <h5>New Person</h5>
-                    <hr>
-                    <div class="input-list">
-                        <div class="form-field-container">
-                            <label>Name</label>
-                            <input type="text">
-                            <i style="color: var(--background-300); font-size: 14px;">Tip: Shorter names are easier to manage.</i>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Company</label>
-                            <select>
-                                <option>Juno</option>
-                                <option>Foster & Partners</option>
-                                <option>FXCollaborative</option>
-                                <option>WeWork</option>
-                                <option>Stonehill Taylor</option>
-                            </select>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Job Title</label>
-                            <input type="text">
-                        </div>
-                        <div class="form-field-container">
-                            <label>Role</label>
-                            <select>
-                                <option>Architect</option>
-                                <option>Engineer</option>
-                                <option>Developer</option>
-                                <option>Technology</option>
-                            </select>
-                        </div>
-                        <div class="form-field-container">
-                            <label>Location</label>
-                            <input type="text">
-                        </div>
-                        <div class="form-field-container">
-                            <label>Status</label>
-                            <select>
-                                <option>Pending</option>
-                                <option>Active</option>
-                                <option>Finished</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-buttons" id="project-form-buttons">
-                        <button style="background-color: var(--background-200);">Cancel</button>
-                        <button>Accept</button>
-                    </div>
-                </form>
-            </dialog>
-            <div id="people-header">
-                <h1>People</h1>
-                <button class="btn-primary" onclick="document.getElementById('new-person-modal').showModal()">
-                    <span class="material-symbols-outlined">add</span>
-                    New Person
-                </button>
-            </div>
-            <div id="people-list">
-                <div id="person-row-1" class="person-row">
-                    <div class="person-icon">CC</div>
-                    <div class="person-name">Christopher Chan</div>
-                    <div class="person-company">Juno</div>
-                    <div class="person-role">Technology</div>
-                    <div class="person-title">Sr. Technical Computing Manager</div>
-                    <div class="person-location">Brooklyn</div>
-                    <div class="person-status">Active</div>
-                    <button class="btn-secondary">View Details</button>
-                </div>
-                <div id="person-row-2" class="person-row">
-                    <div class="person-icon">KM</div>
-                    <div class="person-name">Kate Meagher</div>
-                    <div class="person-company">Juno</div>
-                    <div class="person-role">Design</div>
-                    <div class="person-title">Design Director</div>
-                    <div class="person-location">Brooklyn</div>
-                    <div class="person-status">Active</div>
-                    <button class="btn-secondary">View Details</button>
-                </div>
-                
-            </div>
-        </div>
-    </main>
-    <script type="module" src="./src/index.ts"></script>
-</body>
+        </main>
+        <script type="module" src="./src/index.ts"></script>
+    </body>
 </html>

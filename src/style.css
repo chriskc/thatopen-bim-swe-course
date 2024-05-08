@@ -2,7 +2,7 @@
 /* general styles */
 /* ------------------------------ */
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&display=swap");
 
 /* ------------------------------ */
 /* variables */
@@ -26,20 +26,19 @@
 /* ------------------------------ */
 
 * {
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
     margin: 0px;
     padding: 0px;
 }
 
 body {
     display: grid;
-    grid-template-columns: 200px 1fr; 
+    grid-template-columns: 200px 1fr;
     grid-template-areas: "sidebar content";
     height: 100vh;
     background-color: var(--background-000);
     color: white;
     min-height: max-content;
-
 }
 
 button {
@@ -100,7 +99,7 @@ hr {
 .page {
     display: flex;
     flex-direction: column;
-    height: 100vh;;
+    height: 100vh;
 }
 
 /* ------------------------------ */
@@ -113,14 +112,14 @@ hr {
     flex-direction: column;
     height: 100vh;
 }
-#company-logo{
+#company-logo {
     height: 60px;
     padding: 20px;
 }
 
 #content {
     background-color: var(--background-000);
-    height: 100vh;;
+    height: 100vh;
 }
 
 #nav-buttons {
@@ -138,10 +137,10 @@ hr {
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    align-items: center;   
+    align-items: center;
 }
 
-#nav-buttons li span{
+#nav-buttons li span {
     padding-right: 10px;
 }
 
@@ -209,13 +208,13 @@ hr {
 /* ------------------------------ */
 
 #project-details {
-    height: 100vh;;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 #project-header {
-    padding: 20px
+    padding: 20px;
 }
 
 #project-details-content {
@@ -226,7 +225,6 @@ hr {
     column-gap: 20px;
     flex-grow: 1;
     overflow: auto;
-
 }
 
 #project-sidebar {
@@ -235,7 +233,8 @@ hr {
     row-gap: 20px;
 }
 
-#project-info, #project-todos {
+#project-info,
+#project-todos {
     background-color: var(--background-100);
 }
 
@@ -249,7 +248,7 @@ hr {
 #info-header {
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 #info-description {
@@ -359,7 +358,9 @@ form .form-field-container label {
     padding-bottom: 5px;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
     color: white;
     background-color: var(--background-300);
     border: none;
@@ -375,8 +376,10 @@ textarea::placeholder {
     color: var(--background-400);
 }
 
-input:focus, textarea:focus, select:focus  {
-    outline: 2px solid var(--primary)
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary);
 }
 
 .form-buttons {
@@ -407,7 +410,7 @@ input:focus, textarea:focus, select:focus  {
 
 .person-row {
     display: grid;
-    grid-template-columns: 40px 1fr 150px 150px 300px 150px 150px 100px; 
+    grid-template-columns: 40px 1fr 150px 150px 300px 150px 150px 100px;
     grid-template-areas: "person-icon person-name person-company person-role person-title person-location person-status btn-secondary";
     align-items: center;
     padding: 10px;
@@ -420,9 +423,37 @@ input:focus, textarea:focus, select:focus  {
     font-weight: 600;
 }
 
-.person-icon{
+.person-icon {
     background-color: var(--primary);
     color: black;
     padding: 10px;
     border-radius: 5px;
+}
+
+/* ------------------------------ */
+/* content styles - alert modal */
+/* ------------------------------ */
+
+#alert-modal {
+    width: 30%;
+    border: 2px solid orangered;
+    background-color: black;
+}
+
+#alert-modal-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    justify-content: right;
+}
+
+#alert-label {
+    color: white;
+    font-size: var(--font-medium);
+}
+
+#alert-message {
+    color: var(--background-400);
+    font-size: var(--font-small);
 }
