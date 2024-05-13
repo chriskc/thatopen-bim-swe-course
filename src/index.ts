@@ -8,7 +8,6 @@ import { ProjectsManager } from "./class/ProjectsManager.ts"
 // TODO update with projects manager function
 
 const projectsManager = new ProjectsManager()
-projectsManager.listProjects()
 
 const placeholderData = {
     name: "Hospital Center" as string,
@@ -21,20 +20,33 @@ const placeholderData = {
 
 const placeholderCard = projectsManager.newProject(placeholderData)
 
-// console.log(placeholderCard)
-// const testId = placeholderCard.id
-// const card = projectsManager.getProjectById(testId)
 const card = projectsManager.getProjectByName("Hospital Center")
-
 console.log(card)
 
+// ------------------------------------
+// Testing ProjectsManager methods
+// ------------------------------------
+
+// projectsManager.getProjectById(testId)
+// projectsManager.getProjectByName(testId)
 // projectsManager.deleteProject(testId)
+
+// projectsManager.logProjects()
 projectsManager.costOfAllProjects()
 
-// const placeholder = new Project(placeholderData)
-// for (let i = 0; i < 4; i++){
-//     placeholder.createProjectCard()
-// }
+const downloadJSONBtn = document.getElementById("download-projects-btn")
+if (downloadJSONBtn instanceof HTMLButtonElement) {
+    downloadJSONBtn.addEventListener("click", () => {
+        projectsManager.exportToJSON()
+    })
+}
+
+const uploadJSONBtn = document.getElementById("upload-projects-btn")
+if (uploadJSONBtn instanceof HTMLButtonElement) {
+    uploadJSONBtn.addEventListener("click", () => {
+        projectsManager.importFromJSON()
+    })
+}
 
 // ------------------------------------
 // Create new projects

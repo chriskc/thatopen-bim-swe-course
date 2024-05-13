@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid"
 
-export type ProjectStatus = "pending" | "active" | "finished" 
-export type UserRoles =  "architect" | "engineer" | "developer"
+export type ProjectStatus = "pending" | "active" | "finished"
+export type UserRoles = "architect" | "engineer" | "developer"
 
 export interface IProject {
     name: string
@@ -17,25 +17,23 @@ export class Project {
     status: ProjectStatus
     userRole: UserRoles
     finishDate: Date
-    ui: HTMLDivElement
+    ui?: HTMLDivElement
     cost: number = 1000000
     progress: number = 0
     id: string
 
     constructor(data: IProject) {
-        this.name = data.name;
-        this.description = data.description;
-        this.userRole = data.userRole;
-        this.status = data.status;
-        this.finishDate = data.finishDate;
+        for (const key in data) {
+            this[key] = data[key]
+        }
         this.id = uuidv4()
         this.createProjectCard()
     }
 
     createProjectCard() {
-        if (this.ui) {return}
-        // const randomNumber = Math.floor(Math.random() * 1000000)
-        // console.log(this.id)
+        if (this.ui) {
+            return
+        }
         this.ui = document.createElement("div")
         this.ui.id = this.id
         this.ui.classList.add("project-card")
@@ -72,14 +70,14 @@ export class Project {
         })
 
         const projectList = document.getElementById("projects-list")
-        if (projectList){
+        if (projectList) {
             projectList.appendChild(this.ui)
         }
     }
 
     // createProjectCard() {
     //     const cardTemplate = document.getElementById("project-card-template")
-        
+
     //     if (!cardTemplate) {
     //         console.error("Project card template element is missing")
     //         return
@@ -88,32 +86,36 @@ export class Project {
     //     const projectCard = cardTemplate.cloneNode(true)
 
     //     if (projectCard instanceof HTMLElement){
-            
+
     //         projectCard.style.display = "block"
-            
+
     //         const randomNumber = Math.floor(Math.random() * 1000000);
     //         projectCard.id = `project-card-${randomNumber}`
     //         projectCard.classList.add("project-card")
-            
+
     //         setTextContent(projectCard, ".card-title", this.name)
     //         setTextContent(projectCard, ".card-description", this.description)
     //         setTextContent(projectCard, ".card-role-value", this.userRole)
     //         setTextContent(projectCard, ".card-status-value", this.status)
     //     }
-        
+
     //     const projectList = document.getElementById("projects-list")
     //     if (projectList){
-    //         projectList.appendChild(projectCard)   
-    //     }       
+    //         projectList.appendChild(projectCard)
+    //     }
     // }
 }
 
-function setTextContent(parentElement: HTMLElement | null, className: string, text: string) {
+function setTextContent(
+    parentElement: HTMLElement | null,
+    className: string,
+    text: string
+) {
     if (!parentElement) {
-        console.error('Parent element is null')
+        console.error("Parent element is null")
         return
     }
-    
+
     const element = parentElement.querySelector(className)
     if (element) {
         element.textContent = text

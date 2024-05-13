@@ -104,10 +104,31 @@
                 </dialog>
                 <div id="home-header">
                     <h1>Projects</h1>
-                    <button id="new-project-btn" class="btn-primary">
-                        <span class="material-symbols-outlined">add</span>
-                        New Project
-                    </button>
+                    <div
+                        style="
+                            display: flex;
+                            flex-direction: row;
+                            column-gap: 10px;
+                        ">
+                        <button id="upload-projects-btn" class="btn-secondary">
+                            <span class="material-symbols-outlined"
+                                >upload</span
+                            >
+                            Upload
+                        </button>
+                        <button
+                            id="download-projects-btn"
+                            class="btn-secondary">
+                            <span class="material-symbols-outlined"
+                                >download</span
+                            >
+                            Download
+                        </button>
+                        <button id="new-project-btn" class="btn-primary">
+                            <span class="material-symbols-outlined">add</span>
+                            New Project
+                        </button>
+                    </div>
                 </div>
                 <div id="projects-list">
                     <!-- <div id="project-card-template" class="project-card" style="display: none;">

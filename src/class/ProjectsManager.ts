@@ -42,7 +42,6 @@ export class ProjectsManager {
             return project.id !== id
         })
         this.list = remaining
-        console.log(this.list)
     }
 
     costOfAllProjects() {
@@ -56,12 +55,62 @@ export class ProjectsManager {
         console.log(`Total cost of all projects is: $${totalCost.toFixed(2)}`)
     }
 
-    exportToJSON() {}
-    importFromJSON() {}
-
-    updateProject(data: IProject) {}
-
-    listProjects() {
+    logProjects() {
         console.log(this.list)
     }
+
+    exportToJSON() {
+        console.log(this.list)
+        this.list.forEach((project) => {
+            delete project.ui
+        })
+        console.log(this.list)
+        const json = JSON.stringify(this.list, null, 2)
+        const file = new Blob([json], {
+            type: "application/json",
+        })
+        const timestamp = new Date().toJSON()
+        const a = document.createElement("a")
+        const fileName = `project_${timestamp}.json`
+        const url = URL.createObjectURL(file)
+
+        a.href = url
+        a.download = fileName
+        a.click()
+
+        URL.revokeObjectURL(url)
+    }
+
+    importFromJSON() {
+        let input = document.createElement("input")
+        input.type = "file"
+        input.accept = "application/json"
+
+        const reader = new FileReader()
+        reader.addEventListener("load", () => {
+            const json = reader.result
+            if (!json) {
+                return
+            }
+            const projects: IProject[] = JSON.parse(json as string)
+            for (const project of projects) {
+                try {
+                    this.newProject(project)
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+        })
+
+        input.onchange = () => {
+            const files = input.files
+            if (!files) {
+                return
+            }
+            reader.readAsText(files[0])
+        }
+        input.click()
+    }
+
+    updateProject(data: IProject) {}
 }

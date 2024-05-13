@@ -10,6 +10,7 @@
 
 :root {
     --primary: rgb(26, 152, 208);
+    --primary-hover: rgb(95, 175, 210);
     /* --primary: rgb(140, 45, 200); */
     --background-000: black;
     --background-100: rgb(25, 25, 25);
@@ -57,19 +58,23 @@ button span {
 
 .btn-primary {
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: var(--primary);
+}
+
+.btn-prima:hover {
+    background-color: var(--background-300);
+    color: white;
 }
 
 .btn-secondary {
     border: 1px;
     border-radius: 5px;
-    /* border-color: white; */
     background-color: var(--background-200);
 }
 
 .btn-secondary:hover {
-    background-color: var(--primary);
+    background-color: var(--background-300);
     color: white;
 }
 
